@@ -29,22 +29,25 @@ const Help: React.FC = () => {
     <Card id="help-card">
       <CardContent>
         <Typography gutterBottom={true} id="help-card__title" variant="h5">
-          {t('help.title')}
+          {'🌵 Welcome to the Needle Registry!'}
         </Typography>
         <HelpTitle color="textSecondary" gutterBottom={true}>
-          {t('help.sub-title')}
+          {'Please log in with your GitHub account.'}
         </HelpTitle>
-        {renderHeadingClipboardSegments(t('help.first-step'), t('help.first-step-command-line', { registryUrl }))}
-        {renderHeadingClipboardSegments(t('help.second-step'), t('help.second-step-command-line', { registryUrl }))}
-        <Text variant="body2">{t('help.third-step')}</Text>
+        <Text variant="body2">
+          {"After logging in, you'll receive a token to authenticate in Unity Package Manager."}
+        </Text>
       </CardContent>
       <CardActions>
-        <Button color="primary" href="https://verdaccio.org/docs/en/installation" size="small">
-          {t('button.learn-more')}
+        <Button color="primary" href="https://needle.tools" size="small">
+          {'Learn more at needle.tools'}
         </Button>
       </CardActions>
     </Card>
   );
 };
+
+// {renderHeadingClipboardSegments(t('help.first-step'), t('help.first-step-command-line', { registryUrl }))}
+// {renderHeadingClipboardSegments(t('help.second-step'), t('help.second-step-command-line', { registryUrl }))}
 
 export default Help;
