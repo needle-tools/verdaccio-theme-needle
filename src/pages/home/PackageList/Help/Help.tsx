@@ -29,14 +29,14 @@ const Help: React.FC = () => {
     <Card id="help-card">
       <CardContent>
         <Typography gutterBottom={true} id="help-card__title" variant="h5">
-          {'🌵 Welcome to the Needle Registry!'}
+          {'🌵 Welcome to the Needle Package Registry!'}
         </Typography>
         <HelpTitle color="textSecondary" gutterBottom={true}>
           {'Please log in with your GitHub account.'}
         </HelpTitle>
-        <Text variant="body2">
+        <HelpTitle color="textSecondary" gutterBottom={true}>
           {"After logging in, you'll receive a token to authenticate in Unity Package Manager."}
-        </Text>
+        </HelpTitle>
       </CardContent>
       <CardActions>
         <Button color="primary" href="https://needle.tools" size="small">

@@ -29,11 +29,17 @@ const Install: React.FC = () => {
     <List
       data-testid={'installList'}
       subheader={<StyledText variant={'subtitle1'}>{t('sidebar.installation.title')}</StyledText>}>
-      <InstallListItem dependencyManager={DependencyManager.NPM} packageName={packageName} />
-      <InstallListItem dependencyManager={DependencyManager.YARN} packageName={packageName} />
-      <InstallListItem dependencyManager={DependencyManager.PNPM} packageName={packageName} />
+      <InstallListItem dependencyManager={DependencyManager.UPM} packageName={packageName} />
     </List>
   );
 };
+
+/*
+
+<InstallListItem dependencyManager={DependencyManager.NPM} packageName={packageName} />
+<InstallListItem dependencyManager={DependencyManager.YARN} packageName={packageName} />
+<InstallListItem dependencyManager={DependencyManager.PNPM} packageName={packageName} />
+      
+*/
 
 export default Install;
