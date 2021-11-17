@@ -4,6 +4,7 @@ import CopyToClipBoard from 'verdaccio-ui/components/CopyToClipBoard';
 import { default as Typography } from 'verdaccio-ui/components/Heading';
 import Tab from 'verdaccio-ui/components/Tab';
 import Tabs from 'verdaccio-ui/components/Tabs';
+import Text from 'verdaccio-ui/components/Text';
 import { getCLISetRegistry, getCLIChangePassword, getCLISetConfigRegistry } from 'verdaccio-ui/utils/cli-utils';
 import { NODE_MANAGER } from 'verdaccio-ui/utils/constants';
 
@@ -15,6 +16,21 @@ const RegistryInfoContent: React.FC<Props> = props => {
   const handleChange = (event: React.ChangeEvent<{}>, tabPosition: number): void => {
     event.preventDefault();
     setTabPosition(tabPosition);
+  };
+
+  const renderUpmTab = (scope: string, registryUrl: string): JSX.Element => {
+    return (
+      <>
+        <Text variant="body2">{'Registry'}</Text>
+        <CopyToClipBoard text={'https://packages.needle.tools'} />
+        <Text variant="body2">{'Auth'}</Text>
+        <CopyToClipBoard
+          text={'Copy the adduser command from npm and paste in Project Settings/Package Manager/Credentials'}
+        />
+        <Text variant="body2">{'Scope(s)'}</Text>
+        <CopyToClipBoard text={'com.needle'} />
+      </>
+    );
   };
 
   const renderNpmTab = (scope: string, registryUrl: string): JSX.Element => {
@@ -54,12 +70,10 @@ const RegistryInfoContent: React.FC<Props> = props => {
           value={tabPosition}
           variant="fullWidth">
           <Tab data-testid={'npm-tab'} label={NODE_MANAGER.npm} />
-          <Tab data-testid={'pnpm-tab'} label={NODE_MANAGER.pnpm} />
-          <Tab data-testid={'yarn-tab'} label={NODE_MANAGER.yarn} />
+          <Tab data-testid={'upm-tab'} label={NODE_MANAGER.upm} />
         </Tabs>
         {tabPosition === 0 && <TabContainer>{renderNpmTab(scope, registryUrl)}</TabContainer>}
-        {tabPosition === 1 && <TabContainer>{renderPnpmTab(scope, registryUrl)}</TabContainer>}
-        {tabPosition === 2 && <TabContainer>{renderYarnTab(scope, registryUrl)}</TabContainer>}
+        {tabPosition === 1 && <TabContainer>{renderUpmTab(scope, registryUrl)}</TabContainer>}
       </>
     );
   };
