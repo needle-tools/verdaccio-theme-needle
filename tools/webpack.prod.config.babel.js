@@ -50,6 +50,9 @@ const prodConf = {
     maxEntrypointSize: 512000,
     maxAssetSize: 512000,
   },
+  output: {
+    clean: true,
+  },
 };
 
 module.exports = merge(baseConfig, prodConf);
