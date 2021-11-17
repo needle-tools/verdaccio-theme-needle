@@ -19,10 +19,13 @@ const DetailContainerTabs: React.FC<Props> = ({ tabPosition, onChange }) => {
       <Tab data-testid={'readme-tab'} id={'readme-tab'} label={t('tab.readme')} />
       <Tab data-testid={'dependencies-tab'} id={'dependencies-tab'} label={t('tab.dependencies')} />
       <Tab data-testid={'versions-tab'} id={'versions-tab'} label={t('tab.versions')} />
-      <Tab data-testid={'uplinks-tab'} id={'uplinks-tab'} label={t('tab.uplinks')} />
     </Tabs>
   );
 };
+
+/*
+<Tab data-testid={'uplinks-tab'} id={'uplinks-tab'} label={t('tab.uplinks')} />
+*/
 
 export default DetailContainerTabs;
 

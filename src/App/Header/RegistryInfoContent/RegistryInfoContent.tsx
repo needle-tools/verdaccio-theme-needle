@@ -22,11 +22,9 @@ const RegistryInfoContent: React.FC<Props> = props => {
     return (
       <>
         <Text variant="body2">{'Registry'}</Text>
-        <CopyToClipBoard text={'https://packages.needle.tools'} />
-        <Text variant="body2">{'Auth'}</Text>
-        <CopyToClipBoard
-          text={'Copy the adduser command from npm and paste in Project Settings/Package Manager/Credentials'}
-        />
+        <CopyToClipBoard text={registryUrl} />
+        <Text variant="body2">{'Authentication'}</Text>
+        <CopyToClipBoard text={'Copy the auth key from the NPM tab'} />
         <Text variant="body2">{'Scope(s)'}</Text>
         <CopyToClipBoard text={'com.needle'} />
       </>
@@ -37,8 +35,8 @@ const RegistryInfoContent: React.FC<Props> = props => {
     return (
       <>
         <CopyToClipBoard text={getCLISetConfigRegistry(`${NODE_MANAGER.npm} set`, scope, registryUrl)} />
+        <Text variant="body2">{'Paste AuthToken line into Project Settings/Credentials'}</Text>
         <CopyToClipBoard text={getCLISetRegistry(`${NODE_MANAGER.npm} adduser`, registryUrl)} />
-        <CopyToClipBoard text={getCLIChangePassword(NODE_MANAGER.npm, registryUrl)} />
       </>
     );
   };

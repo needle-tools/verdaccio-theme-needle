@@ -29,9 +29,11 @@ const ActionBar: React.FC = () => {
     actions.push({ type: 'OPEN_AN_ISSUE', link: bugs.url });
   }
 
+  /*
   if (dist?.tarball && isURL(dist.tarball)) {
     actions.push({ type: 'DOWNLOAD_TARBALL', link: dist.tarball });
   }
+  */
 
   return (
     <Box alignItems="center" display="flex" marginBottom="8px">

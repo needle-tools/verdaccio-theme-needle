@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import Avatar from 'verdaccio-ui/components/Avatar';
 import CopyToClipBoard from 'verdaccio-ui/components/CopyToClipBoard';
+import Link from 'verdaccio-ui/components/Link';
 import ListItem from 'verdaccio-ui/components/ListItem';
 import ListItemText from 'verdaccio-ui/components/ListItemText';
 
@@ -36,6 +37,7 @@ export enum DependencyManager {
   NPM = 'npm',
   YARN = 'yarn',
   PNPM = 'pnpm',
+  UPM = 'Unity Package Manager',
 }
 
 interface Interface {
@@ -74,6 +76,21 @@ const InstallListItem: React.FC<Interface> = ({ packageName, dependencyManager }
           <InstallListItemText
             primary={<CopyToClipBoard text={t('sidebar.installation.install-using-pnpm-command', { packageName })} />}
             secondary={t('sidebar.installation.install-using-pnpm')}
+          />
+        </InstallItem>
+      );
+    case DependencyManager.UPM:
+      return (
+        <InstallItem button={true} data-testid={'installListItem-upm'}>
+          <InstallListItemText
+            primary={
+              <Link
+                external={true}
+                to={'https://fwd.needle.tools/deeplink?com.unity3d.kharma:upmpackage/' + packageName}>
+                {'Install ' + packageName}
+              </Link>
+            }
+            secondary={'Install using Unity Package Manager'}
           />
         </InstallItem>
       );
