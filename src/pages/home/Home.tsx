@@ -33,7 +33,7 @@ const Home: React.FC<Props> = ({ isUserLoggedIn }) => {
 
   return (
     <div className="container content" data-testid="home-page-container">
-      {isLoading ? <Loading /> : <PackageList packages={packages} />}
+      {isLoading ? <Loading /> : <PackageList isUserLoggedIn={isUserLoggedIn} packages={packages} />}
     </div>
   );
 };

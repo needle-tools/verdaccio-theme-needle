@@ -76,11 +76,13 @@ const HeaderRight: React.FC<Props> = ({
       <LanguageSwitch />
       <HeaderToolTip title={t('header.documentation')} tooltipIconType={'help'} />
       <HeaderToolTip onClick={onOpenRegistryInfoDialog} title={t('header.registry-info')} tooltipIconType={'info'} />
-      <HeaderToolTip
-        onClick={handleToggleDarkLightMode}
-        title={t('header.documentation')}
-        tooltipIconType={themeContext.isDarkMode ? 'dark-mode' : 'light-mode'}
-      />
+      {false && (
+        <HeaderToolTip
+          onClick={handleToggleDarkLightMode}
+          title={t('header.documentation')}
+          tooltipIconType={themeContext.isDarkMode ? 'dark-mode' : 'light-mode'}
+        />
+      )}
 
       {username ? (
         <HeaderMenu
