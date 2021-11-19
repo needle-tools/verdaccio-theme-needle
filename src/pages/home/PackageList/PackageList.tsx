@@ -12,6 +12,7 @@ import Package, { PackageInterface } from './Package';
 
 interface Props {
   packages: PackageInterface[];
+  isUserLoggedIn: boolean;
 }
 
 const cache = new CellMeasurerCache({
@@ -20,7 +21,7 @@ const cache = new CellMeasurerCache({
 });
 
 /* eslint-disable  verdaccio/jsx-no-style */
-const PackageList: React.FC<Props> = ({ packages }) => {
+const PackageList: React.FC<Props> = ({ packages, isUserLoggedIn }) => {
   const renderRow = ({ index, key, parent, style }: ListRowProps) => {
     const { name, version, description, time, keywords, dist, homepage, bugs, author, license } = packages[index];
     // TODO: move format license to API side.
@@ -52,27 +53,30 @@ const PackageList: React.FC<Props> = ({ packages }) => {
   }
 
   return (
-    <WindowScroller>
-      {({ height, isScrolling, scrollTop, onChildScroll }) => (
-        <AutoSizer disableHeight={true}>
-          {({ width }) => (
-            <List
-              autoHeight={true}
-              deferredMeasurementCache={cache}
-              height={height}
-              isScrolling={isScrolling}
-              onScroll={onChildScroll}
-              overscanRowCount={3}
-              rowCount={packages.length}
-              rowHeight={cache.rowHeight}
-              rowRenderer={renderRow}
-              scrollTop={scrollTop}
-              width={width}
-            />
-          )}
-        </AutoSizer>
-      )}
-    </WindowScroller>
+    <div>
+      {(packages.length === 0 || !isUserLoggedIn) && <Help />}
+      <WindowScroller>
+        {({ height, isScrolling, scrollTop, onChildScroll }) => (
+          <AutoSizer disableHeight={true}>
+            {({ width }) => (
+              <List
+                autoHeight={true}
+                deferredMeasurementCache={cache}
+                height={height}
+                isScrolling={isScrolling}
+                onScroll={onChildScroll}
+                overscanRowCount={3}
+                rowCount={packages.length}
+                rowHeight={cache.rowHeight}
+                rowRenderer={renderRow}
+                scrollTop={scrollTop}
+                width={width}
+              />
+            )}
+          </AutoSizer>
+        )}
+      </WindowScroller>
+    </div>
   );
 };
 

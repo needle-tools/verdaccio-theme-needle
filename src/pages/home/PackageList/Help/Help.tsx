@@ -35,7 +35,9 @@ const Help: React.FC = () => {
           {'Please log in with your GitHub account.'}
         </HelpTitle>
         <HelpTitle color="textSecondary" gutterBottom={true}>
-          {"After logging in, you'll receive a token to authenticate in Unity Package Manager."}
+          {
+            "After logging in, you'll receive a token to authenticate in Unity Package Manager through the Needle Auth package."
+          }
         </HelpTitle>
       </CardContent>
       <CardActions>
