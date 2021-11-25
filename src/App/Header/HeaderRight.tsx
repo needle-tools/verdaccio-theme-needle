@@ -36,6 +36,9 @@ const HeaderRight: React.FC<Props> = ({
     throw Error(t('theme-context-not-correct-used'));
   }
 
+  // hack force-disable dark mode completely
+  themeContext.setIsDarkMode(false);
+
   useEffect(() => {
     setIsMenuOpen(Boolean(anchorEl));
   }, [anchorEl]);
