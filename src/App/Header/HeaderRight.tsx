@@ -77,7 +77,7 @@ const HeaderRight: React.FC<Props> = ({
         <HeaderToolTip onClick={onToggleMobileNav} title={t('search.packages')} tooltipIconType={'search'} />
       )}
       <LanguageSwitch />
-      <HeaderToolTip title={t('header.documentation')} tooltipIconType={'help'} />
+      <HeaderToolTip title={'https://fwd.needle.tools/auth-help'} tooltipIconType={'help'} />
       <HeaderToolTip onClick={onOpenRegistryInfoDialog} title={t('header.registry-info')} tooltipIconType={'info'} />
       {false && (
         <HeaderToolTip
