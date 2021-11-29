@@ -49,12 +49,12 @@ const PackageList: React.FC<Props> = ({ packages, isUserLoggedIn }) => {
   };
 
   if (packages.length === 0) {
-    return <Help />;
+    return <Help isUserLoggedIn={isUserLoggedIn} />;
   }
 
   return (
     <div>
-      {(packages.length === 0 || !isUserLoggedIn) && <Help />}
+      <Help isUserLoggedIn={isUserLoggedIn} />
       <WindowScroller>
         {({ height, isScrolling, scrollTop, onChildScroll }) => (
           <AutoSizer disableHeight={true}>
