@@ -45,7 +45,7 @@ const Help: React.FC<Props> = ({ isUserLoggedIn }) => {
                 <li>{'Add the Needle registry and scope: https://packages.needle.tools, com.needle'}</li>
                 <li>
                   {'Add '}
-                  <a href="https://github.com/needle-tools/package-credentials/blob/master/README.md">
+                  <a href="https://packages.needle.tools/-/web/detail/com.needle.package-credentials">
                     {'com.needle.package-credentials'}
                   </a>
                   {' to your project'}
